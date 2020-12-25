@@ -8,14 +8,24 @@ var gridsize = 32 #
 
 
 func _move(direction):
-    position += gridsize*direction
+    position += GameConstants.GRIDSIZE*direction
+    GameManager.use_me()
+    pass
+    
+func start_turn():
+    # enable Player Input
+    # etc.
     pass
     
 func _end_turn():
+    # disable player input
+    # call enemies turn
+    GameManager.start_enemies_turn()
     pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    GameManager.player = self
     pass # Replace with function body.
 
 
@@ -30,6 +40,7 @@ func _process(delta):
         direction.x = -1
     elif Input.is_action_just_pressed("ui_right"):
         direction.x = 1
-    _move(direction)
-    _end_turn()
+    if(direction.length()>0):
+        _move(direction)
+        _end_turn()
     pass
