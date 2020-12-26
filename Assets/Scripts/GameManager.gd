@@ -9,6 +9,7 @@ var enemylist
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Engine.set_target_fps(10)
 	if enemylist == null:
 		enemylist = []
 	pass # Replace with function body.

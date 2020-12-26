@@ -6,7 +6,7 @@ signal toggle_player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ReturnToTitleButton.hide()
-
+	$GameOverButton.hide()
 
 func show_TitleScreen():
 	emit_signal("toggle_player")
@@ -14,21 +14,21 @@ func show_TitleScreen():
 	$Title.show()
 	$TitleBackground.show()
 	$ReturnToTitleButton.hide()
+	$GameOverButton.hide()
 
 	
 func hide_TitleScreen():
-	emit_signal("start_game")
-	emit_signal("toggle_player")
 	$StartButton.hide()
 	$Title.hide()
 	$TitleBackground.hide()
 	$ReturnToTitleButton.show()
+	$GameOverButton.show()
 
 	
 func _on_StartButton_pressed():
+	emit_signal("start_game")
+	emit_signal("toggle_player")
 	hide_TitleScreen()
-
-
 
 func show_game_over():
 	emit_signal("toggle_player")
@@ -36,7 +36,7 @@ func show_game_over():
 	# Wait until the MessageTimer has counted down.
 	yield($MessageTimer, "timeout")
 	
-	$Message.text = "Dodge the\nCreeps!"
+	$Message.text = "Back to Menu!"
 	$Message.show()
 	# Make a one-shot timer and wait for it to finish.
 	yield(get_tree().create_timer(1), "timeout")
@@ -73,3 +73,7 @@ func _on_ExitButton_pressed():
 
 func _on_ReturnToTitleButton_pressed():
 	show_TitleScreen()
+
+func _on_GameOverButton_pressed():
+	show_game_over()
+	pass # Replace with function body.
