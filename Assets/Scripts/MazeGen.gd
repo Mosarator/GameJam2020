@@ -60,7 +60,7 @@ func _ready():
 		.set_description("Clears the current maze if one exists.")\
 		.register()	
 	var screensize = Vector2(1920, 1080)
-	tile_offset_x = (screensize.x - (maze_width * GameConstants.GRIDSIZE)) / 2 + GameConstants.GRIDSIZE/2
+	tile_offset_x = (screensize.x - (maze_width * GameConstants.GRIDSIZE)) / 2 #+ GameConstants.GRIDSIZE/2
 	tile_offset_y = GameConstants.GRIDSIZE/2
 	
 	# initialize RNG
@@ -101,7 +101,7 @@ func _generate_maze_data():
 	maze_data[maze_width-2][maze_height-2] = Maze.EXIT
 	
 	# place five random items 
-	for i in range(5):
+	for _i in range(5):
 		_place_item()
 	return maze_data
 	
