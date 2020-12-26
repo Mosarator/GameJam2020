@@ -26,11 +26,14 @@ func _end_turn():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.player = self
+	set_process(false)
+	#todo:remove
+	z_index=7
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var direction = Vector2(0,0)
 	if Input.is_action_just_pressed("ui_up"):
 		direction.y = -1

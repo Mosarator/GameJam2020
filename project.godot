@@ -26,6 +26,13 @@ GameConstants="*res://Assets/Scripts/GameConstants.gd"
 MazeGen="*res://Assets/Scripts/MazeGen.gd"
 Console="*res://addons/quentincaffeino-console/src/Console.tscn"
 
+[display]
+
+window/size/width=1020
+window/size/height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "quentincaffeino-console" )

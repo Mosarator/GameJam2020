@@ -7,7 +7,6 @@ extends Node
 var player
 var enemylist 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if enemylist == null:
@@ -23,10 +22,18 @@ func start_enemies_turn():
 	pass
 
 func use_me():
-	print("daddy")
 	pass
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#    pass
+
+func new_game():
+	$HUD.update_score(0)
+	$HUD.show_timed_message("Get Ready")
+	#todo: create new maze with new enemies, reset player health, new shopping list,...
+
+
+func game_over():
+	$HUD.show_game_over()
+
+
+func toggle_player():
+	$PlayerObject.set_process(!$PlayerObject.is_processing())
+	pass
