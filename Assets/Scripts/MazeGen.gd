@@ -45,6 +45,7 @@ func generate_debug_maze():
 func clear_maze():
 	Console.write_line('Clearing existing maze:')
 	var maze = get_node("/root/MazeRoot")
+	#Todo: not working properly. Every second call no maze found
 	if maze != null:
 		Console.write_line('Found a maze and deleted it.')
 		maze.queue_free()
@@ -59,9 +60,9 @@ func _ready():
 	Console.add_command("clear_maze", self, 'clear_maze')\
 		.set_description("Clears the current maze if one exists.")\
 		.register()	
-	var screensize = Vector2(1920, 1080)
-	tile_offset_x = (screensize.x - (maze_width * GameConstants.GRIDSIZE)) / 2 #+ GameConstants.GRIDSIZE/2
-	tile_offset_y = GameConstants.GRIDSIZE/2
+	#var screensize = Vector2(1920, 1080)
+	tile_offset_x =GameConstants.GRIDSIZE/2#+ (screensize.x - (maze_width * GameConstants.GRIDSIZE)) / 2 #
+	tile_offset_y =GameConstants.GRIDSIZE/2
 	
 	# initialize RNG
 	rng.randomize()

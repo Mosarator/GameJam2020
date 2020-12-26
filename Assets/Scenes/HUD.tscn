@@ -74,7 +74,7 @@ margin_left = -107.807
 margin_top = 81.7719
 margin_right = -3.80676
 margin_bottom = 133.772
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.215686, 0.741176, 0.0862745, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "0
 "
@@ -87,7 +87,7 @@ __meta__ = {
 [node name="Message" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.215686, 0.741176, 0.0862745, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -96,18 +96,7 @@ __meta__ = {
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="GameOverButton" type="Button" parent="."]
-margin_left = 898.077
-margin_top = 450.721
-margin_right = 1009.08
-margin_bottom = 514.721
-text = "Game Over"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="ReturnToTitleButton" to="." method="_on_ReturnToTitleButton_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
-[connection signal="pressed" from="GameOverButton" to="." method="_on_GameOverButton_pressed"]

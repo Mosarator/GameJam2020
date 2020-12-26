@@ -5,7 +5,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-
+#Todo: change if game manager no singleton
 func start_turn():
 	# Beispiel:
 	# Suche Spieler position

@@ -6,15 +6,15 @@ signal toggle_player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ReturnToTitleButton.hide()
-	$GameOverButton.hide()
-
+	Console.add_command("show_title_screen", self, 'show_TitleScreen')\
+		.set_description("Retrun to title screen")\
+		.register()
+		
 func show_TitleScreen():
-	emit_signal("toggle_player")
 	$StartButton.show()
 	$Title.show()
 	$TitleBackground.show()
 	$ReturnToTitleButton.hide()
-	$GameOverButton.hide()
 
 	
 func hide_TitleScreen():
@@ -22,7 +22,6 @@ func hide_TitleScreen():
 	$Title.hide()
 	$TitleBackground.hide()
 	$ReturnToTitleButton.show()
-	$GameOverButton.show()
 
 	
 func _on_StartButton_pressed():
@@ -72,8 +71,5 @@ func _on_ExitButton_pressed():
 
 
 func _on_ReturnToTitleButton_pressed():
+	emit_signal("toggle_player")
 	show_TitleScreen()
-
-func _on_GameOverButton_pressed():
-	show_game_over()
-	pass # Replace with function body.

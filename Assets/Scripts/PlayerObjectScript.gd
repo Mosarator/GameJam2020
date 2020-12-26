@@ -10,8 +10,12 @@ var sprite_state=true
 func _move(direction):
 	position += GameConstants.GRIDSIZE*direction
 	GameManager.use_me()
-	$Sprite.flip_h = direction.x ==-1
-	$Sprite2.flip_h = direction.x ==-1
+	if(direction.x ==-1):
+		$Sprite.flip_h = true
+		$Sprite2.flip_h = true
+	if(direction.x ==1):
+		$Sprite.flip_h = false
+		$Sprite2.flip_h = false
 	change_sprite()
 	pass
 	
